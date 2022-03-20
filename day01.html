@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:400px;
+            height:400px;
+            margin-top:-200px;
+            margin-left:-200px;
+            border-radius:2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow:hidden;
+            background:#fff;
+            color:#333;
+            font-family: 'Open Sans',Helvetica,sans-serif;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            background-image:linear-gradient(45deg,#43399f,#4ec5ca);
+        }
+        .center{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        .days, .cssc{
+            font-family:courier;
+            text-align:center;
+            color:white;
+        }
+        .days{
+            font-size:85px;
+        }
+        .cssc{
+            font-size:25px;
+            margin-top:-22px;
+            white-space:nowrap;
+            font-weight:600;
+        }
+        .text{
+            height:103px;
+            content:'';
+            position:relative;
+        }
+        .let{
+            width:25px;
+            background-color:white;
+            content:'';
+            position:absolute;
+        }
+        .l1{
+            top:13px;
+            left:2px;
+            height:105px;
+            z-index:1;
+            box-shadow:4px 8px 16px 0 rgba(0,0,0,0.4)
+        }
+        .l2{
+            top:15px;
+            left:-12px;
+            height:30px;
+            transform:rotate(50deg);
+            z-index:2;
+        }
+        .l3, .l4{
+           border-radius:50%;
+           background-color:transparent;
+           left:18px;
+           height:55px;
+           width:55px;
+           top:12px;
+           border:25px solid white;
+           z-index:2;
+           box-shadow:4px 8px 16px 0 rgba(0,0,0,0.4);
+        }
+        .l4{
+            left:102px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+         <div class="center">
+            <div class="text">
+                <div class="let l1"></div>
+                <div class="let l2"></div>
+                <div class="let l3"></div>
+                <div class="let l4"></div>
+            </div>
+            <div class="days">DAYS</div>
+            <div class="cssc">CSS CHALLENGE</div>
+         </div>
+    </div>
+</body>
+</html>
