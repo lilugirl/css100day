@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:400px;
+            height:400px;
+            margin-top:-200px;
+            margin-left:-200px;
+            border-radius:2px;
+            box-shadow:4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow:hidden;
+            background:#3faf82;
+            color:white;
+            font-family: 'Open Sans',Helvetica,sans-serif;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .center{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:80px;
+            height:80px;
+            transform:translate(-50%,-50%);
+        } 
+        .bar{
+            position:absolute;
+            width:80px;
+            height:8px;
+            background:white;
+            content:'';
+            border-radius:5px;
+            left:0;
+            transition-property:all;
+            transition-duration:0.2s;
+        } 
+        .bar2{
+            top:36px;
+        } 
+        .bar3{
+            bottom:0;
+        }
+
+        .bar1.trans1{
+            transform:translateY(82px);
+        }
+        .bar3.trans1{
+            transform:translateY(-82px);
+        }
+        .bar2.trans1{
+            opacity:0;
+        }
+        .bar1.trans2{
+            transform:rotate(45deg) translateY(25px) translateX(25px);
+        }
+        .bar3.trans2{
+            transform:rotate(-45deg) translateY(-25px) translateX(25px);
+        }
+    </style>
+</head>
+<body>
+  <div class="frame">
+     <div id="clickme" class="center">
+        <div class="bar bar1 "></div>
+        <div class="bar bar2 "></div>
+        <div class="bar bar3 "></div>
+     </div>
+  </div>  
+  <script>
+      var openStatus=true;
+      var locked=false;
+      function installhandler(){
+        const el=document.getElementById('clickme');
+        el.addEventListener('click',function(){
+            if(locked) return;
+            locked=true;
+            const els=document.getElementsByClassName('bar');
+            for(let el of els){
+                if(openStatus){
+                    el.classList.add('trans1')
+                }else{
+                    el.classList.remove('trans2')
+                }
+            }
+            setTimeout(function(){
+                for(let el of els){
+                    if(openStatus){
+                        el.classList.add("trans2")
+                    }else{
+                        el.classList.remove('trans1')
+                    }
+                }
+                openStatus=!openStatus;
+                locked=false;
+
+            },250)
+        },false)
+      }
+      installhandler();
+ </script>
+</body>
+</html>
